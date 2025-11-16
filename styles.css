@@ -1,0 +1,125 @@
+* {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  size: 14px;
+  line-height: 130%;
+  vertical-align: middle;
+  color: #1f2128;
+}
+
+.container-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+  max-width: 370px;
+  min-height: 326px;
+  margin: auto;
+  padding: 10px 0px;
+
+  background: #ffffff;
+
+  border: 1px solid #eeeeee;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 4px rgba(20, 20, 20, 0.1),
+    0px 8px 15px rgba(20, 20, 20, 0.12);
+  border-radius: 6px;
+}
+
+.hr {
+  width: 340px;
+  border: 0.5px solid #eeeeee;
+  margin: 10px auto;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 10px;
+
+  width: 340px;
+  height: 40px;
+
+  background: #ffce22;
+  border-radius: 4px;
+  border: none;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #ffd84d;
+}
+.button:focus {
+  background: #ffce22;
+}
+
+/* -------------------------- */
+
+.custom-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Wrapper */
+.custom-checkbox {
+  width: 340px;
+  height: 22px;
+  padding: 10px 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+/* Custom box */
+.checkmark {
+  width: 23px;
+  height: 23px;
+  border: 1.5px solid #cdcdcd;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 1.5px;
+}
+
+/* Checked state */
+.custom-checkbox input:checked + .checkmark {
+  background: #2469f6;
+  color: white;
+  content: url('data:image/svg+xml,<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.75 0.75L8.97857 4.52143L5.20714 8.29286L0.75 4.17857" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>');
+  padding: 3px;
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+  content: url('data:image/svg+xml,<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.75 0.75L8.97857 4.52143L5.20714 8.29286L0.75 4.17857" stroke="%23e3e3e3" stroke-width="1.5" stroke-linecap="round"/></svg>');
+}
+/* Hover not checked */
+.custom-checkbox input:hover:not(:checked) + .checkmark::after {
+  content: url('data:image/svg+xml,<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.75 0.75L8.97857 4.52143L5.20714 8.29286L0.75 4.17857" stroke="%23e3e3e3" stroke-width="1.5" stroke-linecap="round"/></svg>');
+  color: #e3e3e3;
+  border-color: #e3e3e3;
+  background: #ffffff;
+}
+/* Hover not checked checkmark behavior */
+.custom-checkbox input:hover:not(:checked) + span.checkmark:hover {
+  box-shadow: 0px 0px 4px #bdbdbd, 0px 0px 4px #bdbdbd;
+}
+/* Hover checked checkmark behavior */
+.custom-checkbox input:hover:checked + span.checkmark:hover {
+  background-color: #5087f8;
+}

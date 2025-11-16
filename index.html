@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <section class="container-section" x-data="checkboxSync()">
+        <label class="custom-checkbox">
+            All pages
+            <input type="checkbox" x-model="allChecked" @change="syncAll()" />
+            <span class="checkmark"></span>
+        </label>
+        <hr class="hr">
+        <template x-for="page in pages" :key="page.id">
+            <label class="custom-checkbox">
+                <span x-text="page.label"></span>
+                <input type="checkbox" x-model="page.checked" @change="syncMaster()" />
+                <span class="checkmark"></span>
+            </label>
+        </template>
+        <hr class="hr">
+        <span class="buttons">
+            <button class="button apply">Done</button>
+        </span>
+    </section>
+
+</body>
+
+<script>
+    function checkboxSync() {
+        return {
+            allChecked: false,
+            pages: [
+                { id: 'page1', label: 'Page 1', checked: false },
+                { id: 'page2', label: 'Page 2', checked: false },
+                { id: 'page3', label: 'Page 3', checked: false },
+                { id: 'page4', label: 'Page 4', checked: false },
+            ],
+            syncAll() {
+                // When "All pages" changes, sync all page checkboxes
+                this.pages.forEach(p => p.checked = this.allChecked);
+            },
+            syncMaster() {
+                // When any page checkbox changes, update "All pages" to true only if all are checked
+                this.allChecked = this.pages.every(p => p.checked === true);
+            }
+        };
+    }
+</script>
+
+</html>
