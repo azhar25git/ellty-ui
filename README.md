@@ -1,6 +1,6 @@
 # Ellty UI
 
-A lightweight, interactive checkbox UI component built with **Alpine.js** and vanilla CSS. Demonstrates master–detail checkbox synchronization with a clean, modern design.
+A lightweight, interactive checkbox UI component built with **Alpine.js** and vanilla CSS. Demonstrates master–detail checkbox synchronization with a clean, modern design. Can be accessed live via: https://azhar25git.github.io
 
 ## Features
 
